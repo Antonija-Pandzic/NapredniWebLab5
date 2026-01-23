@@ -20,7 +20,6 @@ onMounted(async () => {
   await ensureLoaded()
 })
 
-
 watch(
   () => store.tasks.length,
   async () => {
@@ -37,17 +36,31 @@ watch(
 
     <div v-else-if="task" class="card">
       <h2>{{ task.title }}</h2>
-      <p>Status: <b>{{ task.done ? 'gotovo' : 'u tijeku' }}</b></p>
-      <p>Prioritet: <b>{{ task.priority }}</b></p>
+      <p>Status: <b>{{ task.done ? 'završeno' : 'u tijeku' }}</b></p>
+      <p>Hitnost: <b>{{ task.priority }}</b></p>
 
       <button @click="store.toggleDone(task.id)">
-        {{ task.done ? 'Označi kao nije gotovo' : 'Označi kao gotovo' }}
+        {{ task.done ? 'Označi kao u tijeku' : 'Označi kao završeno' }}
       </button>
     </div>
 
     <div v-else class="card">
-      <h2>Nema zadatka</h2>
-      <p>Ne postoji zadatak s ID={{ id }}.</p>
+      <h2>Nema lekcije</h2>
+      <p>Ne postoji lekcija s ID={{ id }}.</p>
     </div>
   </section>
 </template>
+
+<style scoped>
+.card{
+  margin-top: 12px;
+  border: 1px solid #e6d9f5;
+  padding: 12px;
+  border-radius: 16px;
+  background: #ffffffcc;
+  backdrop-filter: blur(6px);
+  box-shadow: 0 10px 30px #00000010;
+}
+button{ margin-top: 10px; }
+</style>
+

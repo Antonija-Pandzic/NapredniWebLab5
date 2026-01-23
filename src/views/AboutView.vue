@@ -2,8 +2,8 @@
   <section>
     <h1>About</h1>
     <p>
-      Aplikacija demonstrira Vue 3 značajke: router, Pinia store, komponente,
-      evente, computed, lifecycle i async dohvat.
+      Study Planner demonstrira Vue 3: router, Pinia store, komponente, emit događaje,
+      computed, lifecycle i async dohvat podataka.
     </p>
   </section>
 </template>

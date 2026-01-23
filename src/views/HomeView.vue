@@ -1,10 +1,11 @@
 <script setup>
-const appTitle = "Task Planner";
+const appTitle = 'Study Planner'
 </script>
 
 <template>
   <section>
     <h1>{{ appTitle }}</h1>
-    <p>Jednostavna SPA aplikacija za planiranje zadataka.</p>
+    <p>SPA aplikacija za planiranje učenja: dodavanje lekcija, filtriranje i prikaz detalja.</p>
+    <p>Idi na <RouterLink to="/tasks">Plan učenja</RouterLink> za popis lekcija.</p>
   </section>
 </template>
