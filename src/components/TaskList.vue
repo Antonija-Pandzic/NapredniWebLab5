@@ -7,7 +7,7 @@ const emit = defineEmits(["select", "toggle"]);
 
 <template>
   <ul class="list">
-    <li v-for="t in tasks" :key="t.id" class="row">
+    <li v-for="t in tasks" :key="t.id" class="row"> <!-- props-->
       <span @click="emit('select', t.id)" class="title">
         {{ t.title }}
         <!-- interpolation / one-way -->

@@ -1,10 +1,10 @@
-VUE3 SPA projekt – prva faza
-
 URL aplikacije u cloudu:
 
-- (OVDJE UPIŠI URL)
+https://spaapp-90tr.onrender.com/
 
 Kako pokrenuti lokalno:
+
+Nakon što se zip raspakira u neku mapu, pozicionirati se u tu mapu preko terminala i pokrenuti naredbe:
 
 1. npm install
 2. npm run dev
@@ -25,7 +25,7 @@ Popis zahtjeva i gdje se vidi u kodu:
 
 4. computed properties – DA
    - src/components/AddTaskForm.vue (canSubmit)
-   - src/views/TaskDetailsView.vue (id, task)
+   - src/views/TaskDetailsView.vue (computed: id, task)
    - src/stores/tasks.js (getters: filteredTasks, doneCount)
 
 5. barem jedan scoped style – DA
@@ -35,16 +35,16 @@ Popis zahtjeva i gdje se vidi u kodu:
 
 6. lifecycle hook – DA
    - src/views/TasksView.vue (onMounted -> store.load())
-   - src/views/TaskDetailsView.vue (onMounted -> store.load() ako treba)
+   - src/views/TaskDetailsView.vue (onMounted -> ensureLoaded() -> store.load() po potrebi)
 
-7. routing (više stranica) + bookmarkable – DA
+7. routing (više stranica) + bookmarkable + 404 – DA
    - src/router/index.js (rute: /, /tasks, /task/:id, /about)
-   - Direktan URL npr. /task/2 radi (bookmarkable)
-   - 404 catch-all ruta: /:pathMatch(._)_
+   - Direktan URL npr. /tasks i /task/2 radi (bookmarkable)
+   - 404 catch-all ruta: /:pathMatch(._)_ (NotFoundView)
 
 8. (barem) dvije komponente – DA
-   - src/components/AddTaskForm.vue (komponenta sa stanjem)
-   - src/components/TaskList.vue (komponenta bez stanja, props)
+   - src/components/AddTaskForm.vue (komponenta sa stanjem) Stateful: (ref: title, priority)
+   - src/components/TaskList.vue (komponenta bez stanja, koristi props) Stateless: (props: tasks)
 
 9. barem jedna komponenta emitira event – DA
    - src/components/AddTaskForm.vue emitira 'add'
@@ -58,4 +58,6 @@ Popis zahtjeva i gdje se vidi u kodu:
 
 - src/services/tasksApi.js (fetchTasks async)
 - src/stores/tasks.js (load() await fetchTasks())
-- (router lazy load) src/router/index.js (component: () => import(...))
+
+Kratke upute za korištenje:
+Na stranici Tasks možete dodati novi zadatak unosom naslova (min. 3 znaka) i odabirom prioriteta, a zatim klikom na “Dodaj”. Uz svaki zadatak nalazi se gumb “Gotovo/Vrati” kojim se mijenja status zadatka, dok “Prikaži gotove” uključuje/isključuje prikaz dovršenih zadataka. Polje “Filter…” sužava listu po tekstu u naslovu, a klik na naziv zadatka otvara detalje na ruti /task/:id.

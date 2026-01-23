@@ -24,7 +24,7 @@ function onSelect(id) {
 
 <template>
   <section>
-    <h1>Zadaci</h1>
+    <h1>Zadatci</h1>
 
     <AddTaskForm @add="onAdd" />
 
